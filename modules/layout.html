@@ -11,7 +11,7 @@
                     <a module=Workbench _class="vm_active"><i class="fa fa-home"></i> Workbench</a>
                     <!--
                     <div class="vm_dropdown">
-                        <button class="vm_dropbtn">Pages <i class="fa fa-caret-down"></i></button>
+                        <button class="vm_dropbtn">Tasks <i class="fa fa-caret-down"></i></button>
                         <div class="vm_dropdown-content">
                             <a module=pages_link-1>My first bootstrap page</a>
                             <a module=pages_link-2>Dark table</a>
@@ -186,7 +186,7 @@
                         display:none;
                     }
                     #vm_system_search{
-                        /*display:none;*/
+                        display:none;
                     }
                 }
             </style>
@@ -216,15 +216,6 @@
                     $('#m_title').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
                     $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
                     //---------------------------------------------
-                    var init_loop=setInterval(function (){
-                        console.log('init_loop...')
-                        if($vm.init_status==1){
-                            clearInterval(init_loop);
-                            show_user();
-                            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* init is done ************************");
-                        }
-                    },100);
-                    //---------------------------------------------
                     var show_user=function(){
                         var third=""
                         if($vm.user_puid=="1") third=" (Google)";
@@ -240,6 +231,7 @@
                             $('#signout__ID').show();
                         }
                     }
+                    show_user();
                     //---------------------------------------------
                     if(window.location.hostname!='127.0.0.1'){
                         $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
@@ -437,15 +429,6 @@
 		//------------------------------------
         $vm.root_layout_content_slot="content_container__ID";
 		//------------------------------------
-		window.onmessage=function(e){
-		    if(e.data.username!=undefined && e.data.user_id!=undefined){
-		        $vm.user=e.data.username;
-		        $vm.user_id=e.data.user_id;
-		        $VmAPI.set_token(e.data.token,e.data.api_url,e.data.username,e.data.user_id,e.data.nickname);
-		        location.reload(true);
-		    }
-		};
-		//-----------------------------------------
         var set_height=function(){
 			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
 			var footer_height=$('#footer__ID').outerHeight();

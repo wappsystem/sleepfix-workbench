@@ -164,6 +164,16 @@ function vm_init(callback){
 }
 //------------------------------------
 vm_init(function(){
+    //-----------------------------------------
+    window.onmessage=function(e){
+        if(e.data.username!=undefined && e.data.user_id!=undefined){
+            $vm.user=e.data.username;
+            $vm.user_id=e.data.user_id;
+            $VmAPI.set_token(e.data.token,e.data.api_url,e.data.username,e.data.user_id,e.data.nickname);
+            location.reload(true);
+        }
+    };
+    //-----------------------------------------
     var resources=[
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
