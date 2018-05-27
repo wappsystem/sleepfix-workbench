@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Modular distributed web application</title>
+		<meta charset="utf-8">
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="icon" href="data:,">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+        <script>
+			$vm={};	$vm.start_time=new Date().getTime();
+            $.ajaxSetup({cache:true});
+            $.get('version.html',function(v){
+                console.log(v);
+				if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.debug =true;
+                $vm.ver=v.trim().split(',');
+                var url=window.location.href.split('?')[0];
+                var ver=localStorage.getItem(url+"_ver");
+                var txt=localStorage.getItem(url+"_txt");
+                //------------------------------------------
+                if(ver!=$vm.ver[0] || txt===null || $vm.debug==true){
+                    console.log((new Date().getTime()-$vm.start_time).toString()+"---"+'loading modules/layout.html?_='+$vm.ver[0]);
+                    $.get('modules/layout.html?_='+$vm.ver[0]+$vm.reload,function(new_txt){
+                        localStorage.setItem(url+"_txt",new_txt);
+                        localStorage.setItem(url+"_ver",$vm.ver[0]);
+                        $('#vm_framework').html(new_txt);
+						var url='code-'+window.location.href.split('?')[0];
+		                var ver=localStorage.getItem(url+"_ver");
+		                var txt=localStorage.getItem(url+"_txt");
+						if(ver!=$vm.ver[1] || txt===null || $vm.debug==true){
+							$.get('index.js?_='+$vm.ver[0]+$vm.reload,function(new_txt){
+								localStorage.setItem(url+"_txt",new_txt);
+		                        localStorage.setItem(url+"_ver",$vm.ver[0]);
+								$('head').append('<scr'+'ipt>'+new_txt+'</scr'+'ipt>');
+							},'text');
+						}
+						else $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>');
+                    },'text');
+                }
+                else{ $('#vm_framework').html(txt); }
+            },'text')
+        </script>
+	</head>
+	<body><div id=vm_framework></div></body>
+</html>
