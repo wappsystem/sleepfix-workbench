@@ -212,8 +212,22 @@ vm_init(function(){
       var load_hot_modules=function(){
           //pre load into memory, for fast showing on screen
           //-------------------------------------
-          //$vm.nav_load_module('page-examples_snapshot-about','hidden',{})
-          //-------------------------------------
+          var nm=[];
+          for(var k in $vm.module_list){
+              if($vm.module_list[k].preload!=undefined) nm.push(k);
+          }
+          var i=0
+          var N=nm.length;
+          if(N>0){
+              var load_module_loop=setInterval(function (){
+                  if(i>=N){
+                      clearInterval(load_module_loop);
+                      return;
+                  }
+                  $vm.load_module_v2(nm[i],'hidden',{})
+                  i++;
+              },100);
+          }
       }
       //------------------------------------
       load_system_modules();
@@ -304,6 +318,7 @@ vm_init(function(){
     vm_top_right_corner();
     vm_header();
     vm_footer();
+    $('#vm_system_info').text((new Date().getTime()-$vm.start_time).toString()+"ms")
     $vm.load_module_v2("Home",'',{});
     setTimeout(function (){	$.ajaxSetup({cache:true}); load_resources(resources); },10);
     loading_back_image();
