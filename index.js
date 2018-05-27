@@ -4,7 +4,10 @@ $vm.module_list={
     "Workbench":        {"table_id":"",         "url":"https://codepen.io/vmiis/pen/VxoPYx.html"},
     "system-structure": {"table_id":"",         "url":"https://www.vmiis.com/pages/help/structure.html"},
     "screening-data":   {"table_id":"20011503", "url":"https://codepen.io/vmiis/pen/zjgROg.html", form_module:'screening-form'},
-    "screening-form":   {"table_id":"20011503", "url":"https://codepen.io/vmiis/pen/zjgNRp.html"}
+    "screening-form":   {"table_id":"20011503", "url":"https://codepen.io/vmiis/pen/zjgNRp.html"},
+    "screen-failure":   {"table_id":"",         "url":"https://codepen.io/vmiis/pen/zjgWgj.html"},
+    "consent-data":     {"table_id":"20011504", "url":"https://codepen.io/vmiis/pen/zjgjdM.html", form_module:'consent-form'},
+    "consent-form":     {"table_id":"20011504", "url":"https://codepen.io/vmiis/pen/VxoxXL.html"}
 }
 //------------------------------------
 $vm.app_config={
