@@ -1,22 +1,15 @@
 //------------------------------------
+$vm.module_links=[
+    "index.json"
+];
 $vm.module_list={
-    "Home":             {"table_id":"",         "url":"modules/home.html"},
-    "Workbench":        {"table_id":"",         "url":"https://codepen.io/vmiis/pen/VxoPYx.html"},
-    "system-structure": {"table_id":"",         "url":"https://www.vmiis.com/pages/help/structure.html"},
-    "screening-data":   {"table_id":"20011503", "url":"https://codepen.io/vmiis/pen/zjgROg.html", form_module:'screening-form'},
-    "screening-form":   {"table_id":"20011503", "url":"https://codepen.io/vmiis/pen/zjgNRp.html"},
-    "screen-failure":   {"table_id":"",         "url":"https://codepen.io/vmiis/pen/zjgWgj.html"},
-    "consent-data":     {"table_id":"20011504", "url":"https://codepen.io/vmiis/pen/zjgjdM.html", form_module:'consent-form'},
-    "consent-form":     {"table_id":"20011504", "url":"https://codepen.io/vmiis/pen/VxoxXL.html"}
+    "Home":     {"url":"modules/home.html"}
 }
 //------------------------------------
 $vm.app_config={
     "api_path_development":"https://cbs.wappsystem.com/dev/",
-    "api_path_production":"https://cbs.wappsystem.com/dev/",
+    "api_path_production":"https://cbs.wappsystem.com/pro/",
     "default_production":"No",
-    "panels":{
-          "pages":	    {"url":"","modules":[]}
-    }
 }
 //------------------------------------
 $vm.website_module_list_for_search=[];
@@ -40,7 +33,7 @@ function vm_init(callback){
     var lastChar=path[path.length-1];
     if(lastChar=='/') path=path.substring(0,path.length-1);
     $vm.hosting_path=path;
-    //if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.debug =true;
+    if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
     //--------------------------------------------------------
     $vm.reload='';
     if(window.location.toString().indexOf('_d=3')!=-1){
@@ -95,8 +88,8 @@ function vm_init(callback){
         var ver=localStorage.getItem(url+"_ver");
         var txt=localStorage.getItem(url+"_txt");
         //------------------------------------------
-        if(ver!=$vm.ver[1] || txt===null){
-            console.log((new Date().getTime()-$vm.start_time).toString()+"---"+'loading '+url+'?_='+$vm.ver[1]);
+        if(ver!=$vm.ver[1] || txt===null || $vm.localhost==true){
+            console.log('loading from url. '+url)
             $.get(url+'?_='+$vm.reload,function(data){
                 localStorage.setItem(url+"_txt",data);
                 localStorage.setItem(url+"_ver",$vm.ver[1]);
@@ -104,7 +97,10 @@ function vm_init(callback){
                 next();
             },'text');
         }
-        else{ $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next(); }
+        else{
+            console.log('loading from stotage. '+url)
+            $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next();
+        }
         //------------------------------------------
     }
     //--------------------------------------------------------
@@ -178,6 +174,9 @@ vm_init(function(){
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css",
 
+      "https://unpkg.com/react@16/umd/react.production.min.js",
+      "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
       "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
       "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js",
@@ -255,13 +254,13 @@ vm_init(function(){
       }
     }
     //------------------------------------
-    var load_search_modules=function(){
-        var a=window.location.href.split('module=');
+    var load_search_module=function(){
+        var a=window.location.href.split('page=');
         if(a.length==2){
             var name=a[1].split('&')[0];
             if(name.length>0){
                 if($vm.module_list[name]!=undefined){
-                    $vm.nav_load_module(name);
+                    $vm.load_module_v2(name,'',{});
                     return;
                 }
                 else alert("The module "+name+" is not in the module list!");
@@ -277,10 +276,10 @@ vm_init(function(){
                 for(k in $vm.module_list){
                     if($vm.module_list[k].name_for_search!=undefined){
                         if($vm.module_list[k].name_for_search!=""){
-                            $vm.website_module_list_for_search.push($vm.module_list[k].name_for_search);
+                            $vm.website_module_list_for_search.push({label:$vm.module_list[k].name_for_search,value:k});
                         }
                     }
-                    else $vm.website_module_list_for_search.push(k);
+                    else $vm.website_module_list_for_search.push({label:k,value:k});
                 }
                 $("#vm_system_search").autocomplete({
                     minLength:0,
@@ -295,7 +294,8 @@ vm_init(function(){
                         $("#vm_system_search").blur();
                         $('.ui-helper-hidden-accessible').html('');
                         $vm.load_module_v2(ui.item.value,'',{});
-                    }
+                    },
+                    position: {  collision: "flip"  }
                 });
                 $("#vm_system_search").focus(function(){$("#vm_system_search").autocomplete("search","");});
 				console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* search is ready ************************");
@@ -311,7 +311,43 @@ vm_init(function(){
             $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");
             console.log((new Date().getTime()-$vm.start_time).toString()+"---"+"********************* background image is ready ************************");
         }));
-        $image1.attr("src", "index.jpg");
+        $image1.attr("src", "layout.jpg");
+    }
+    //------------------------------------
+    var module_links=function(){
+        var rm=$vm.module_links;
+        var process=function(prefix,nm){
+            $.get(nm+'?_='+$vm.ver[0]+$vm.reload,function(txt){
+                var config;	try{ config=JSON.parse(txt);} catch (e){ alert("Error in config file\n"+e); return; }
+                var modules=config.modules;
+                var path=nm.replace('index.json','');
+                for (var k in modules){
+                    modules[k].url=path+modules[k].url;
+                    $vm.module_list[prefix+k]=modules[k];
+                    $vm.module_list[prefix+k].prefix=prefix;
+                    var snm=modules[k]['name_for_search'];
+                    if(snm!=""){
+                        if(snm==undefined) snm=prefix+k;
+                        $vm.website_module_list_for_search.push({label:snm,value:prefix+k})
+                    }
+                }
+            },'text');
+        }
+        var i=0
+        var N=rm.length;
+        if(N>0){
+            var link_remote_module_loop=setInterval(function (){
+                if(i>=N){
+                    clearInterval(link_remote_module_loop);
+                    load_search_module();
+                    return;
+                }
+                var ns=rm[i].split('|');
+                if(ns.length==1) process("",ns[0])
+                else process(ns[0]+"_",ns[1]);
+                i++;
+            },10);
+        }
     }
     //------------------------------------
     vm_layout();
@@ -324,5 +360,6 @@ vm_init(function(){
     loading_back_image();
     over_write_alert();
     set_module_search();
+    module_links();
 })
 //------------------------------------
