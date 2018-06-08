@@ -13,10 +13,10 @@
             <br>
             <span>Baseline</span>
             <ul>
-				<li><u m2=panel01>Quetionnaire Panel</u></li>
+				<li><u m2=bl_panel>Baseline quetionnaire panel</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>General Self-Efficacy Scale</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Autonomy and competence in Technology Adoption</u></li>
-				<li><u m2=q01-data>Data</u> <u m2=q01-form>Insomnia Severity Index (ISI)</u></li>
+				<li><u m2=bl-isi-data>Data</u> <u m2=bl-isi-form>Insomnia Severity Index (ISI)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Sleep Quality</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Depression (PHQ-9)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Anxiety (GAD-7)</u></li>
@@ -32,7 +32,7 @@
             <span>Week 1</span>
             <ul>
 				<li><u m2=panel01>Quetionnaire Panel</u></li>
-				<li><u m2=q01-data>Data</u> <u m2=q01-form>Insomnia Severity Index (ISI)</u></li>
+				<li><u m2=w1-isi-data>Data</u> <u m2=w1-isi-form>Insomnia Severity Index (ISI)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Sleep Quality</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Fatigue</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>TENS</u></li>
@@ -44,7 +44,7 @@
 			<span>Week 2</span>
             <ul>
 				<li><u m2=panel01>Quetionnaire Panel</u></li>
-				<li><u m2=q01-data>Data</u> <u m2=q01-form>Insomnia Severity Index (ISI)</u></li>
+				<li><u m2=w2-isi-data>Data</u> <u m2=w2-isi-form>Insomnia Severity Index (ISI)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Sleep Quality</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Fatigue</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>TENS</u></li>
@@ -56,7 +56,7 @@
 			<span>Week 3</span>
             <ul>
 				<li><u m2=panel01>Quetionnaire Panel</u></li>
-				<li><u m2=q01-data>Data</u> <u m2=q01-form>Insomnia Severity Index (ISI)</u></li>
+				<li><u m2=w3-isi-data>Data</u> <u m2=w3-isi-form>Insomnia Severity Index (ISI)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Sleep Quality</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Fatigue</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>TENS</u></li>
@@ -70,7 +70,7 @@
             <span>Week 6</span>
             <ul>
 				<li><u m2=panel01>Quetionnaire Panel</u></li>
-				<li><u m2=q01-data>Data</u> <u m2=q01-form>Insomnia Severity Index (ISI)</u></li>
+				<li><u m2=w6-isi-data>Data</u> <u m2=w6-isi-form>Insomnia Severity Index (ISI)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Sleep Quality</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Depression (PHQ-9)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Anxiety (GAD-7)</u></li>
@@ -86,7 +86,7 @@
             <span>Week 12</span>
             <ul>
 				<li><u m2=panel01>Quetionnaire Panel</u></li>
-				<li><u m2=q01-data>Data</u> <u m2=q01-form>Insomnia Severity Index (ISI)</u></li>
+				<li><u m2=w12-isi-data>Data</u> <u m2=w12-isi-form>Insomnia Severity Index (ISI)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Sleep Quality</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Depression (PHQ-9)</u></li>
 				<li><u m2=q01-data>Data</u> <u m2=q01-form>Anxiety (GAD-7)</u></li>
@@ -101,6 +101,8 @@
 		</div>
 	</section>
 </div>
+aaa.com/nnn
+<div id=comments__ID style='min-height:260px;background-color:#fff;padding:0 10px 160px 10px;'></div>
 <script>
     function F__ID(){
         //--------------------------------------------------------
@@ -115,8 +117,40 @@
         })
         //--------------------------------------------------------
 		$('#app__ID').hide();
-		if(window.location.href.indexOf('/vmiis/')!=-1) $('#app__ID').show();
+		if(window.location.href.indexOf('/vmiis/')!=-1){
+			$('#app__ID').show();
+			if($vm.localhost) $('#app__ID').prop('href','apps/sleepfix-workbench/');
+		}
 		//--------------------------------------------------------
+		$('#D__ID').on('load',function(){
+			if( $('#comments__ID').html()==''){
+				var id='__ID';
+				$('#disqus_thread').appendTo("#comments__ID");
+				if(typeof DISQUS != "undefined") {
+		            DISQUS.reset({
+		                reload: true,
+		                config: function () {
+		                    this.page.identifier = id;
+		                    this.page.url = $vm.hosting_path+"/#!"+id;
+							this.page.title=id;
+		                }
+		            });
+		        }
+				else{
+					disqus_config = function () {
+						this.page.identifier=id;
+						this.page.url=$vm.hosting_path+"/#!"+id;
+						this.page.title=id;
+					};
+					(function() {
+					var d = document, s = d.createElement('script');
+					s.src = 'https://sleepfix-workbench.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+					})();
+				}
+			}
+		})
     }
 </script>
 <style>
@@ -130,6 +164,7 @@
 	}
 	#page__ID{
         padding:10px 0 0 20px;
+		display:inline-block;
     }
     #info__ID{
         font-size: 11px;

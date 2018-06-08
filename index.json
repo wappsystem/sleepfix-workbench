@@ -9,9 +9,25 @@
         "consent-form":         {"table_id":"20011504","url":"https://codepen.io/vmiis/pen/VxoxXL.html"},
         "registration-data":    {"table_id":"20011505","url":"https://codepen.io/vmiis/pen/zaGaZa.html","form_module":"registration-form"},
         "registration-form":    {"table_id":"20011505","url":"https://codepen.io/vmiis/pen/XYbYWz.html"},
-        "panel01":              {                      "url":"https://codepen.io/vmiis/pen/bKeWRZ.html"},
+        "bl_panel":             {                      "url":"https://codepen.io/vmiis/pen/bKeWRZ.html"},
         "q01-data":             {"table_id":"20011506","url":"https://codepen.io/vmiis/pen/eKNjZx.html","form_module":"q01-form"},
         "q01-form":             {"table_id":"20011506","url":"https://codepen.io/vmiis/pen/gKpjOg.html"},
+
+        "bl-isi-data":          {"table_id":"20011508","url":"https://codepen.io/vmiis/pen/mKOPOw.html","form_module":"bl-isi-form"},
+        "w1-isi-data":          {"table_id":"20011509","url":"https://codepen.io/vmiis/pen/mKOPOw.html","form_module":"w1-isi-form"},
+        "w2-isi-data":          {"table_id":"20011510","url":"https://codepen.io/vmiis/pen/mKOPOw.html","form_module":"w2-isi-form"},
+        "w3-isi-data":          {"table_id":"20011511","url":"https://codepen.io/vmiis/pen/mKOPOw.html","form_module":"w3-isi-form"},
+        "w6-isi-data":          {"table_id":"20011512","url":"https://codepen.io/vmiis/pen/mKOPOw.html","form_module":"w6-isi-form"},
+        "w12-isi-data":         {"table_id":"20011513","url":"https://codepen.io/vmiis/pen/mKOPOw.html","form_module":"w12-isi-form"},
+
+        "bl-isi-form":          {"table_id":"20011508","url":"https://codepen.io/vmiis/pen/vryGpZ.html"},
+        "w1-isi-form":          {"table_id":"20011509","url":"https://codepen.io/vmiis/pen/vryGpZ.html"},
+        "w2-isi-form":          {"table_id":"20011510","url":"https://codepen.io/vmiis/pen/vryGpZ.html"},
+        "w3-isi-form":          {"table_id":"20011511","url":"https://codepen.io/vmiis/pen/vryGpZ.html"},
+        "w6-isi-form":          {"table_id":"20011512","url":"https://codepen.io/vmiis/pen/vryGpZ.html"},
+        "w12-isi-form":         {"table_id":"20011513","url":"https://codepen.io/vmiis/pen/vryGpZ.html"},
+
+
         "q02-data":             {"table_id":"20011507","url":"modules/questionnaires/q02-data.html","form_module":"q02-form"},
         "q02-form":             {"table_id":"20011507","url":"modules/questionnaires/q02-form.html"},
         "q03-data":             {"table_id":"20011508","url":"modules/questionnaires/q03-data.html","form_module":"q03-form"},
