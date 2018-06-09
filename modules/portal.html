@@ -101,7 +101,6 @@
 		</div>
 	</section>
 </div>
-aaa.com/nnn
 <div id=comments__ID style='min-height:260px;background-color:#fff;padding:0 10px 160px 10px;'></div>
 <script>
     function F__ID(){
@@ -123,6 +122,10 @@ aaa.com/nnn
 		}
 		//--------------------------------------------------------
 		$('#D__ID').on('load',function(){
+			if($vm.localhost){
+				$('#comments__ID').hide();
+				return;
+			}
 			if( $('#comments__ID').html()==''){
 				var id='__ID';
 				$('#disqus_thread').appendTo("#comments__ID");
