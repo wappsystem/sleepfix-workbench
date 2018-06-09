@@ -9,6 +9,7 @@
         "consent-form":         {"table_id":"20011504","url":"https://codepen.io/vmiis/pen/VxoxXL.html"},
         "registration-data":    {"table_id":"20011505","url":"https://codepen.io/vmiis/pen/zaGaZa.html","form_module":"registration-form"},
         "registration-form":    {"table_id":"20011505","url":"https://codepen.io/vmiis/pen/XYbYWz.html"},
+        "q-login":              {                      "url":"https://codepen.io/vmiis/pen/bKgNpV.html"},
         "bl_panel":             {                      "url":"https://codepen.io/vmiis/pen/bKeWRZ.html"},
         "q01-data":             {"table_id":"20011506","url":"https://codepen.io/vmiis/pen/eKNjZx.html","form_module":"q01-form"},
         "q01-form":             {"table_id":"20011506","url":"https://codepen.io/vmiis/pen/gKpjOg.html"},
