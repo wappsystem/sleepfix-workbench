@@ -2,6 +2,7 @@
     "modules":
 	{
         "workbench":            {                      "url":"modules/portal.html"},
+        "project-info":         {                      "url":"https://codepen.io/vmiis/pen/OEWoVe.html"},
         "screening-data":       {"table_id":"20011503","url":"https://codepen.io/vmiis/pen/zjgROg.html","form_module":"screening-form"},
         "screening-form":       {"table_id":"20011503","url":"https://codepen.io/vmiis/pen/zjgNRp.html"},
         "screen-failure-thank-you-page":              {"url":"https://codepen.io/vmiis/pen/zjgWgj.html"},
@@ -113,24 +114,57 @@
         "bl-bpns-form":  {"table_id":"20011543","url":"https://codepen.io/vmiis/pen/KeaoRK.html"},
         "w12-bpns-form": {"table_id":"20011544","url":"https://codepen.io/vmiis/pen/KeaoRK.html"},
 
+        "w1-tens-data":  {"table_id":"20011545","url":"https://codepen.io/vmiis/pen/mKRKwO.html","form_module":"w1-tens-form"},
+        "w2-tens-data":  {"table_id":"20011546","url":"https://codepen.io/vmiis/pen/mKRKwO.html","form_module":"w2-tens-form"},
+        "w3-tens-data":  {"table_id":"20011547","url":"https://codepen.io/vmiis/pen/mKRKwO.html","form_module":"w3-tens-form"},
+        "w1-tens-form":  {"table_id":"20011545","url":"https://codepen.io/vmiis/pen/zaNawX.html"},
+        "w2-tens-form":  {"table_id":"20011546","url":"https://codepen.io/vmiis/pen/zaNawX.html"},
+        "w3-tens-form":  {"table_id":"20011547","url":"https://codepen.io/vmiis/pen/zaNawX.html"},
 
-        "q02-data":             {"table_id":"20011507","url":"modules/questionnaires/q02-data.html","form_module":"q02-form"},
-        "q02-form":             {"table_id":"20011507","url":"modules/questionnaires/q02-form.html"},
-        "q03-data":             {"table_id":"20011508","url":"modules/questionnaires/q03-data.html","form_module":"q03-form"},
-        "q03-form":             {"table_id":"20011508","url":"modules/questionnaires/q03-form.html"},
-        "q04-data":             {"table_id":"20011509","url":"modules/questionnaires/q04-data.html","form_module":"q04-form"},
-        "q04-form":             {"table_id":"20011509","url":"modules/questionnaires/q04-form.html"},
-        "q05-data":             {"table_id":"20011510","url":"modules/questionnaires/q05-data.html","form_module":"q05-form"},
-        "q05-form":             {"table_id":"20011510","url":"modules/questionnaires/q05-form.html"},
-        "q06-data":             {"table_id":"20011511","url":"modules/questionnaires/q06-data.html","form_module":"q06-form"},
-        "q06-form":             {"table_id":"20011511","url":"modules/questionnaires/q06-form.html"},
-        "q07-data":             {"table_id":"20011512","url":"modules/questionnaires/q07-data.html","form_module":"q07-form"},
-        "q07-form":             {"table_id":"20011512","url":"modules/questionnaires/q07-form.html"},
-        "q08-data":             {"table_id":"20011513","url":"modules/questionnaires/q08-data.html","form_module":"q08-form"},
-        "q08-form":             {"table_id":"20011513","url":"modules/questionnaires/q08-form.html"},
-        "q09-data":             {"table_id":"20011514","url":"modules/questionnaires/q09-data.html","form_module":"q09-form"},
-        "q09-form":             {"table_id":"20011514","url":"modules/questionnaires/q09-form.html"},
-        "q10-data":             {"table_id":"20011515","url":"modules/questionnaires/q10-data.html","form_module":"q10-form"},
-        "q10-form":             {"table_id":"20011515","url":"modules/questionnaires/q10-form.html"}
+        "w1-std-data":  {"table_id":"20011548","url":"https://codepen.io/vmiis/pen/vrgrPm.html","form_module":"w1-std-form"},
+        "w2-std-data":  {"table_id":"20011549","url":"https://codepen.io/vmiis/pen/vrgrPm.html","form_module":"w2-std-form"},
+        "w3-std-data":  {"table_id":"20011550","url":"https://codepen.io/vmiis/pen/vrgrPm.html","form_module":"w3-std-form"},
+        "w6-std-data":  {"table_id":"20011551","url":"https://codepen.io/vmiis/pen/vrgrPm.html","form_module":"w3-std-form"},
+
+        "w1-std-form":  {"table_id":"20011548","url":"https://codepen.io/vmiis/pen/MXJXLx.html"},
+        "w2-std-form":  {"table_id":"20011549","url":"https://codepen.io/vmiis/pen/MXJXLx.html"},
+        "w3-std-form":  {"table_id":"20011550","url":"https://codepen.io/vmiis/pen/MXJXLx.html"},
+        "w6-std-form":  {"table_id":"20011551","url":"https://codepen.io/vmiis/pen/MXJXLx.html"},
+
+        "w1-adherenceS-data":  {"table_id":"20011552","url":"https://codepen.io/vmiis/pen/NzdzQL.html","form_module":"w1-adherenceS-form"},
+        "w2-adherenceS-data":  {"table_id":"20011553","url":"https://codepen.io/vmiis/pen/NzdzQL.html","form_module":"w2-adherenceS-form"},
+        "w3-adherenceS-data":  {"table_id":"20011554","url":"https://codepen.io/vmiis/pen/NzdzQL.html","form_module":"w3-adherenceS-form"},
+        "w6-adherenceS-data":  {"table_id":"20011555","url":"https://codepen.io/vmiis/pen/NzdzQL.html","form_module":"w3-adherenceS-form"},
+        "w12-adherenceS-data": {"table_id":"20011556","url":"https://codepen.io/vmiis/pen/NzdzQL.html","form_module":"w3-adherenceS-form"},
+
+        "w1-adherenceS-form":  {"table_id":"20011552","url":"https://codepen.io/vmiis/pen/VdPdop.html"},
+        "w2-adherenceS-form":  {"table_id":"20011553","url":"https://codepen.io/vmiis/pen/VdPdop.html"},
+        "w3-adherenceS-form":  {"table_id":"20011554","url":"https://codepen.io/vmiis/pen/VdPdop.html"},
+        "w6-adherenceS-form":  {"table_id":"20011555","url":"https://codepen.io/vmiis/pen/VdPdop.html"},
+        "w12-adherenceS-form": {"table_id":"20011556","url":"https://codepen.io/vmiis/pen/VdPdop.html"},
+
+        "w1-adherenceF-data":  {"table_id":"20011557","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w1-adherenceF-form"},
+        "w2-adherenceF-data":  {"table_id":"20011558","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w2-adherenceF-form"},
+        "w3-adherenceF-data":  {"table_id":"20011559","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w3-adherenceF-form"},
+        "w6-adherenceF-data":  {"table_id":"20011560","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w3-adherenceF-form"},
+        "w12-adherenceF-data": {"table_id":"20011561","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w3-adherenceF-form"},
+
+        "w1-adherenceF-form":  {"table_id":"20011557","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+        "w2-adherenceF-form":  {"table_id":"20011558","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+        "w3-adherenceF-form":  {"table_id":"20011559","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+        "w6-adherenceF-form":  {"table_id":"20011560","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+        "w12-adherenceF-form": {"table_id":"20011561","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+
+        "w1-adherenceF-data":  {"table_id":"20011557","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w1-adherenceF-form"},
+        "w2-adherenceF-data":  {"table_id":"20011558","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w2-adherenceF-form"},
+        "w3-adherenceF-data":  {"table_id":"20011559","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w3-adherenceF-form"},
+        "w6-adherenceF-data":  {"table_id":"20011560","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w3-adherenceF-form"},
+        "w12-adherenceF-data": {"table_id":"20011561","url":"https://codepen.io/vmiis/pen/VdPBLb.html","form_module":"w3-adherenceF-form"},
+
+        "w1-adherenceF-form":  {"table_id":"20011557","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+        "w2-adherenceF-form":  {"table_id":"20011558","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+        "w3-adherenceF-form":  {"table_id":"20011559","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+        "w6-adherenceF-form":  {"table_id":"20011560","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"},
+        "w12-adherenceF-form": {"table_id":"20011561","url":"https://codepen.io/vmiis/pen/XYpBbJ.html"}
 	}
 }
