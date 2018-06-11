@@ -20,14 +20,14 @@
         			<li module=workbench>Workbench</li>
                     <li module=data-management>Data management</li>
                     <li module=sleepfix-home>SleepFix</li>
-                    <li module=link-4>Online questionnaire (Baseline)</li>
-                    <li module=link-5>Online questionnaire (Week 1)</li>
-                    <li module=link-6>Online questionnaire (Week 2)</li>
-                    <li module=link-7>Online questionnaire (Week 3)</li>
-                    <li module=link-8>Online questionnaire (Week 6)</li>
-                    <li module=link-9>Online questionnaire (Week 12)</li>
+                    <li module=bl-login>Online questionnaire (Baseline)</li>
+                    <li module=w1-login>Online questionnaire (Week 1)</li>
+                    <li module=w2-login>Online questionnaire (Week 2)</li>
+                    <li module=w3-login>Online questionnaire (Week 3)</li>
+                    <li module=w6-login>Online questionnaire (Week 6)</li>
+                    <li module=w12-login>Online questionnaire (Week 12)</li>
         		</ul>
-                <div id=signin__ID>
+                <div id=vm_system_signin>
                     <u class=vm_folder><i class="fa fa-folder-o"></i>Sign In</u>
                     <ul class=vm_menu_hide__ID>
                         <li id=google__ID >With your Google account</li>
@@ -36,8 +36,8 @@
                     </ul>
                     <br>
                 </div>
-                <div id=signout__ID>
-                    <u style="display:none" onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</u>
+                <div id=vm_system_signout style="display:none">
+                    <u onclick=$vm.nav_signout()><i class="fa fa-user"></i> Sign Out</u>
                 </div>
             </div>
             <div id="vm_search">
@@ -59,7 +59,7 @@
         <div>
             <span id=database_p__ID style='color:green'>. </span>
             <span id=database_d__ID style='color:red'>. </span>
-            <span id=username__ID></span>
+            <span id=vm_system_username></span>
         </div>
     </div>
     <div alert class="modal fade" id="vm_alert_information" tabindex="-1" role="dialog" aria-labelledby="vm_dialog" aria-hidden="true" data-backdrop="static">
@@ -160,21 +160,22 @@
             if($vm.user_puid=="1") third=" (Google)";
             if($vm.user_puid=="2") third=" (Facebook)";
             if($vm.user=='guest'){
-                $('#username__ID').text('');
-                $('#signin__ID').show();
-                $('#signout__ID').hide();
+                $('#vm_system_username').text('');
+                $('#vm_system_signin').show();
+                $('#vm_system_signout').hide();
             }
             else{
-                $('#username__ID').text('Signed in as '+ $vm.user+third);
-                $('#signin__ID').hide();
-                $('#signout__ID').show();
+                var user=$vm.user.replace('system_20011505_','');
+                $('#vm_system_username').text('Signed in as '+ user+third);
+                $('#vm_system_signin').hide();
+                $('#vm_system_signout').show();
             }
         }
         show_user();
         //---------------------------------------------
         if(window.location.hostname!='127.0.0.1'){
-            $vm.google_signin_setup('175539446682-tvqlkse9j0mt79fk70uetoq30bpnrboa.apps.googleusercontent.com','google__ID',show_user);
-            $vm.facebook_signin_setup('360182794393427','facebook__ID',show_user);
+            $vm.google_signin_setup('175539446682-1gpn5bil7aoff1cnur5uev84o9e5am1c.apps.googleusercontent.com','google__ID',show_user);
+            $vm.facebook_signin_setup('342009392874981','facebook__ID',show_user);
         }
         //---------------------------------------------
     }
@@ -424,7 +425,7 @@
         color:#fff;
         z-index: 99999;
     }
-    #username__ID{
+    #vm_system_username{
         float:right;
     }
     #database_d__ID{
