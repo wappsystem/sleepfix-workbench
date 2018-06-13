@@ -13,6 +13,8 @@
         "consent-form":         {"table_id":"20011504","url":"https://codepen.io/vmiis/pen/VxoxXL.html"},
         "registration-data":    {"table_id":"20011505","url":"https://codepen.io/vmiis/pen/zaGaZa.html","form_module":"registration-form"},
         "registration-form":    {"table_id":"20011505","url":"https://codepen.io/vmiis/pen/XYbYWz.html"},
+        "registration-thank-you-page":                {"url":"https://codepen.io/vmiis/pen/GGERYO.html"},
+        "email-template-after-registration":          {"url":"https://codepen.io/vmiis/pen/QxgbbN.html"},
 
         "bl-login":             {                      "url":"https://codepen.io/vmiis/pen/bKgNpV.html","TP":"bl-panel"},
         "w1-login":             {                      "url":"https://codepen.io/vmiis/pen/bKgNpV.html","TP":"w1-panel"},
