@@ -1,7 +1,7 @@
 <div layout-html id=layout__ID>
     <div id=header__ID>
         <div id=m_header__ID>
-            <span module=Home id=m_title__ID>Business Portal</span> <a id=vm_toggle__ID onclick="vm_toggle()"><i class="fa fa-bars"></i></a>
+            <span module=Home id=m_title__ID>Business Portal</span> <a id=vm_toggle__ID onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
         </div>
         <div id=d_header__ID>Header</div>
     </div>
@@ -54,7 +54,7 @@
     	<span id=text__ID></span><span id=vm_system_info style='color:#555;float:right'></span>
     </div>
 </div>
-<div system>
+<div system-html>
     <div top-right-corner id=top_right_corner__ID class='d-none d-xl-block'>
         <div>
             <span id=database_p__ID style='color:green'>. </span>
@@ -84,7 +84,7 @@
 </div>
 <script layout-js>
     //---------------------------------------------
-	function vm_layout(){
+	$vm.layout=function(){
 		//------------------------------------
         $vm.root_layout_content_slot="content_container__ID";
 		//------------------------------------
@@ -100,14 +100,14 @@
         //-----------------------------------------
 	}
     //---------------------------------------------
-    var vm_footer=function(){
+    $vm.footer=function(){
         $vm.root_layout_footer='footer__ID';
         //-----------------------------------------------------
         $('#text__ID').html("Copyright © "+(new Date()).getFullYear()+", SleepFix. <span id=FL__ID>Powered by Wappsystem</span>");
         //------------------------------------
     }
     //---------------------------------------------
-    var vm_top_right_corner=function(){
+    $vm.top_right_corner=function(){
         if($vm.server=='development') $('#database_d__ID').show();
         else if($vm.server=='production') $('#database_p__ID').show();
     }
@@ -125,7 +125,7 @@
         }
     })
     //--------------------------------------------------------
-    var click_process=function($li){
+    $vm.menu_click_process=function($li){
         var m=$li.attr('module');
         if(m!=undefined){
             if($vm.module_list[m]==undefined){
@@ -138,11 +138,11 @@
         }
     }
     //--------------------------------------------------------
-    $('#vm_menu li').on('click',function(){ click_process($(this));})
+    $('#vm_menu li').on('click',function(){ $vm.menu_click_process($(this));})
     //--------------------------------------------------------
-    $('#vm_menu .vm_li').on('click',function(){ click_process($(this));})
+    $('#vm_menu .vm_li').on('click',function(){ $vm.menu_click_process($(this));})
     //--------------------------------------------------------
-    function vm_toggle() {
+    $vm.toggle=function() {
         var d=$('#sidebar__ID');
         if(d.hasClass('vm_show')){
             d.removeClass('vm_show').addClass('vm_hide');
@@ -151,7 +151,7 @@
             d.removeClass('vm_hide').addClass('vm_show');
         }
     }
-    var vm_header=function(){
+    $vm.header=function(){
         $('#m_title__ID').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
         $('#vm_logo').on('click',function(){   var module=$(this).attr('module');   $vm.load_module_v2(module);    })
         //---------------------------------------------

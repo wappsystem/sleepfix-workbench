@@ -1,7 +1,7 @@
 {
     "modules":
 	{
-        "workbench":            {                      "url":"modules/portal.html"},
+        "workbench":            {                      "url":"modules/workbench.html"},
         "data-management":      {                      "url":"modules/data-management.html"},
         "project-info":         {                      "url":"https://codepen.io/vmiis/pen/OEWoVe.html"},
         "sleepfix-home":        {                      "url":"https://codepen.io/vmiis/pen/ZRLgbL.html"},
